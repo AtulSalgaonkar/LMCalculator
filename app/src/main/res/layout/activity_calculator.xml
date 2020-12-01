@@ -1,441 +1,435 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".CalculatorActivity">
 
-    <data>
-        <variable
-            name="calculatorViewModel"
-            type="com.lm.lmcalculator.CalculatorViewModel" />
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/calculate_tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"
-        tools:context=".CalculatorActivity">
+        android:layout_height="0dp"
+        android:gravity="end|bottom"
+        android:hint="0"
+        android:padding="18dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/one_ph"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/calculate_tv"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="end|bottom"
-            android:hint="0"
-            android:text="@{calculatorViewModel.currentText}"
-            android:padding="18dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="28sp"
-            app:layout_constraintBottom_toTopOf="@+id/one_ph"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/one_ph"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="18dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/result_tv" />
 
-        <ImageView
-            android:id="@+id/one_ph"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="18dp"
-            android:background="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@+id/result_tv" />
+    <TextView
+        android:id="@+id/result_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18sp"
+        android:layout_marginBottom="18dp"
+        android:gravity="end|bottom"
+        android:hint="Ans"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/two_ph"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/result_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18sp"
-            android:layout_marginBottom="18dp"
-            android:gravity="end|bottom"
-            android:hint="Ans"
-            android:text="@{calculatorViewModel.answerText}"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="28sp"
-            app:layout_constraintBottom_toTopOf="@+id/two_ph"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/two_ph"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="18dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/num_pad_view" />
 
-        <ImageView
-            android:id="@+id/two_ph"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="18dp"
-            android:background="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@+id/num_pad_view" />
+    <LinearLayout
+        android:id="@+id/num_pad_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="18sp"
+        android:background="@drawable/calculator_number_back"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:id="@+id/num_pad_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="18sp"
-            android:background="@drawable/calculator_number_back"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:weightSum="80">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="8dp"
-                android:weightSum="80">
-
-                <TextView
-                    android:id="@+id/clear_all_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="C"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <ImageView
-                    android:id="@+id/clear_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:src="@drawable/ic_baseline_backspace"
-                    android:text=""
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/divide_all_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="\u00F7"
-                    android:textColor="@android:color/black"
-                    android:textSize="34sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/clear_all_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
                 android:background="@android:color/black" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:weightSum="80">
-
-                <TextView
-                    android:id="@+id/one_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="1"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/two_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="2"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/three_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="3"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <ImageView
-                    android:id="@+id/into_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:padding="24sp"
-                    android:src="@drawable/ic_into"
-                    android:textColor="@android:color/black" />
-
-            </LinearLayout>
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@android:color/black" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:weightSum="80">
-
-                <TextView
-                    android:id="@+id/four_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="4"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/five_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="5"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/six_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="6"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <ImageView
-                    android:id="@+id/minus_tv"
-                    android:src="@drawable/ic_minus"
-                    android:gravity="center"
-                    android:textColor="@android:color/black"
-                    android:padding="34sp"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20" />
-
-            </LinearLayout>
+                android:id="@+id/clear_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:padding="20dp"
+                android:src="@drawable/ic_baseline_backspace"
+                android:text=""
+                android:textSize="24sp" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
                 android:background="@android:color/black" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:weightSum="80">
-
-                <TextView
-                    android:id="@+id/seven_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="7"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/eight_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="8"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:id="@+id/nine_tv"
-                    android:gravity="center"
-                    android:text="9"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <ImageView
-                    android:id="@+id/add_tv"
-                    android:gravity="center"
-                    android:textColor="@android:color/black"
-                    android:padding="24sp"
-                    android:src="@drawable/ic_baseline_add"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/divide_all_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="\u00F7"
+                android:textColor="@android:color/black"
+                android:textSize="34sp" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
                 android:background="@android:color/black" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="8dp"
-                android:weightSum="80">
-
-                <TextView
-                    android:id="@+id/double_zero_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="0 0"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/zero_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/dot_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="."
-                    android:textColor="@android:color/black"
-                    android:textSize="34sp" />
-
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/equals_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:gravity="center"
-                    android:text="="
-                    android:textColor="@android:color/black"
-                    android:textSize="34sp" />
-
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/switch_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:padding="24sp"
+                android:src="@drawable/ic_sort"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/black" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:weightSum="80">
 
-</layout>
+            <TextView
+                android:id="@+id/one_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/two_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/three_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/into_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:padding="24sp"
+                android:src="@drawable/ic_into"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:weightSum="80">
+
+            <TextView
+                android:id="@+id/four_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="4"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/five_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/six_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/minus_tv"
+                android:src="@drawable/ic_minus"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:padding="34sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:weightSum="80">
+
+            <TextView
+                android:id="@+id/seven_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/eight_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:id="@+id/nine_tv"
+                android:gravity="center"
+                android:text="9"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/add_tv"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:padding="24sp"
+                android:src="@drawable/ic_baseline_add"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:weightSum="80">
+
+            <TextView
+                android:id="@+id/double_zero_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="0 0"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/zero_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/dot_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="."
+                android:textColor="@android:color/black"
+                android:textSize="34sp" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/equals_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="="
+                android:textColor="@android:color/black"
+                android:textSize="34sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
