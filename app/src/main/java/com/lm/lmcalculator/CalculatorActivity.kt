@@ -3,10 +3,12 @@ package com.lm.lmcalculator
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_calculator.*
+import java.util.*
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -253,7 +255,7 @@ class CalculatorActivity : AppCompatActivity() {
                             Log.d(TAG, "onCreate newCurrentTextDivide: $newCurrentTextDivide")
                             Log.d(TAG, "onCreate newCurrentTextAdd: $newCurrentTextAdd")
                             Log.d(TAG, "onCreate newCurrentTextMinus: $newCurrentTextMinus")
-                        } else {
+                        } else if (!it.contains(".")) {
                             currentTextLiveData?.postValue("$it.")
                         }
                     }
@@ -273,13 +275,40 @@ class CalculatorActivity : AppCompatActivity() {
                     calculatorViewModel!!.currentText = it + "0"
                 }
             }
-            val currentText: String? = calculatorViewModel!!.currentText
-            currentText?.let { it1 -> calculatorViewModel?.eval(it1) }
+            try {
+                val currentText: String? = calculatorViewModel!!.currentText
+                currentText?.let { it1 -> calculatorViewModel?.eval(it1) }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                currentTextLiveData?.postValue("0")
+                result_tv.text = "Ans"
+                calculatorViewModel?.answer = 0.0
+                val error = e.message.toString().trim()
+                if (error.toLowerCase(Locale.getDefault()).contains("unexpected"))
+                    Toast.makeText(
+                        this@CalculatorActivity,
+                        "Unexpected Error, Please try again!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                else {
+                    if (!TextUtils.isEmpty(error))
+                        Toast.makeText(this@CalculatorActivity, error, Toast.LENGTH_SHORT).show()
+                    else
+                        Toast.makeText(
+                            this@CalculatorActivity,
+                            "Please try again!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                }
+
+            }
         }
 
         clear_all_tv.setOnClickListener() {
             currentTextLiveData?.postValue("")
             result_tv.text = "Ans"
+            calculatorViewModel?.answer = 0.0
         }
 
 

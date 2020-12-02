@@ -25,7 +25,7 @@ class CalculatorViewModel : ViewModel() {
         return answerTextLiveData
     }
 
-
+    @Throws(Exception::class)
     fun eval(expression: String) {
         var str = expression
         if (str.contains("x"))

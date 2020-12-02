@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
     tools:context=".CalculatorActivity">
@@ -80,9 +79,12 @@
 
             <TextView
                 android:id="@+id/clear_all_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="C"
                 android:textColor="@android:color/black"
@@ -95,9 +97,12 @@
 
             <ImageView
                 android:id="@+id/clear_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:padding="20dp"
                 android:src="@drawable/ic_baseline_backspace"
@@ -111,9 +116,12 @@
 
             <TextView
                 android:id="@+id/divide_all_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="\u00F7"
                 android:textColor="@android:color/black"
@@ -126,9 +134,12 @@
 
             <ImageView
                 android:id="@+id/switch_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:padding="24sp"
                 android:src="@drawable/ic_sort"
@@ -153,10 +164,13 @@
 
             <TextView
                 android:id="@+id/one_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="1"
                 android:textColor="@android:color/black"
@@ -169,9 +183,12 @@
 
             <TextView
                 android:id="@+id/two_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="2"
                 android:textColor="@android:color/black"
@@ -184,9 +201,12 @@
 
             <TextView
                 android:id="@+id/three_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="3"
                 android:textColor="@android:color/black"
@@ -199,9 +219,12 @@
 
             <ImageView
                 android:id="@+id/into_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:padding="24sp"
                 android:src="@drawable/ic_into"
@@ -226,10 +249,13 @@
 
             <TextView
                 android:id="@+id/four_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="4"
                 android:textColor="@android:color/black"
@@ -242,9 +268,12 @@
 
             <TextView
                 android:id="@+id/five_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="5"
                 android:textColor="@android:color/black"
@@ -257,9 +286,12 @@
 
             <TextView
                 android:id="@+id/six_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="6"
                 android:textColor="@android:color/black"
@@ -272,13 +304,16 @@
 
             <ImageView
                 android:id="@+id/minus_tv"
-                android:src="@drawable/ic_minus"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:padding="34sp"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="20" />
+                android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
+                android:gravity="center"
+                android:padding="34sp"
+                android:src="@drawable/ic_minus"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 
@@ -299,10 +334,13 @@
 
             <TextView
                 android:id="@+id/seven_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="7"
                 android:textColor="@android:color/black"
@@ -315,9 +353,12 @@
 
             <TextView
                 android:id="@+id/eight_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="8"
                 android:textColor="@android:color/black"
@@ -329,10 +370,13 @@
                 android:background="@android:color/black" />
 
             <TextView
+                android:id="@+id/nine_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
-                android:id="@+id/nine_tv"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="9"
                 android:textColor="@android:color/black"
@@ -345,13 +389,16 @@
 
             <ImageView
                 android:id="@+id/add_tv"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:padding="24sp"
-                android:src="@drawable/ic_baseline_add"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="20" />
+                android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
+                android:gravity="center"
+                android:padding="24sp"
+                android:src="@drawable/ic_baseline_add"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 
@@ -373,10 +420,13 @@
 
             <TextView
                 android:id="@+id/double_zero_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="0 0"
                 android:textColor="@android:color/black"
@@ -389,9 +439,12 @@
 
             <TextView
                 android:id="@+id/zero_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="@android:color/black"
@@ -404,9 +457,12 @@
 
             <TextView
                 android:id="@+id/dot_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="."
                 android:textColor="@android:color/black"
@@ -419,9 +475,12 @@
 
             <TextView
                 android:id="@+id/equals_tv"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
+                android:background="@drawable/button_square_background"
+                android:foreground="@drawable/ripple_square"
                 android:gravity="center"
                 android:text="="
                 android:textColor="@android:color/black"
